@@ -11,19 +11,19 @@ module.exports = async({
     const chainId = await getChainId()
 
     log("---------------------------------------")
-    const EYESNFT = await deploy("Eyes", {
+    const EYENFT = await deploy("Eye", {
         from: deployer,
         log: true
     })
 
-    log(`contract deployed to ${EYESNFT.address}`)
+    log(`contract deployed to ${EYENFT.address}`)
 
 
-    const eyesContract = await ethers.getContractFactory("Eyes")
+    const eyeContract = await ethers.getContractFactory("Eye")
     //hre - hardhat runtime environment - 
     const accounts = await hre.ethers.getSigners()
     const signer = accounts[0]
-    const eyesNFT = new ethers.Contract(EYESNFT.address, eyesContract.interface, signer)
+    const eyesNFT = new ethers.Contract(EYENFT.address, eyeContract.interface, signer)
     const networkName = networkConfig[chainId]['name']
 
     log(`Verify with:\n npx hardhat verify --network ${networkName} ${eyesNFT.address}`)

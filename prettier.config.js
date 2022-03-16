@@ -2,11 +2,11 @@
 module.exports = {
     overrides: [
         {
-            files: "*.sol",
+            files: ["*.sol", "*.js"],
             options: {
                 printWidth: 140,
                 tabWidth: 4,
-                useTabs: false,
+                useTabs: true,
                 singleQuote: false,
                 bracketSpacing: false,
                 explicitTypes: "always"
